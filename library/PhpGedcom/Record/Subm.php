@@ -66,6 +66,11 @@ class Subm extends Record implements Objectable
     /**
      * @var array
      */
+    protected $note = array();
+
+    /**
+     * @var array
+     */
     protected $obje = array();
 
     /**
@@ -120,6 +125,24 @@ class Subm extends Record implements Objectable
     public function getPhon()
     {
         return $this->phon;
+    }
+
+    /**
+     * @param array $note
+     * @return Subm
+     */
+    public function setNote($note)
+    {
+        $this->note = $note;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getNote()
+    {
+        return $this->note;
     }
 
     /**
@@ -201,6 +224,16 @@ class Subm extends Record implements Objectable
     public function addPhon(Record\Phon $phon)
     {
         $this->phon[] = $phon;
+        return $this;
+    }
+
+    /**
+     * @param Record\NoteRef $note
+     * @return Subm
+     */
+    public function addNote(Record\NoteRef $note)
+    {
+        $this->note[] = $note;
         return $this;
     }
 
