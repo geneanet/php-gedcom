@@ -21,19 +21,13 @@ namespace PhpGedcom\Record;
 class Obje extends \PhpGedcom\Record implements Noteable
 {
     protected $_id   = null;
-
     protected $_form = null;
     protected $_titl = null;
     protected $_blob = null;
     protected $_rin  = null;
     protected $_chan = null;
-    protected $_file = null;
-
+    protected $_file = array();
     protected $_refn = array();
-
-    /**
-     *
-     */
     protected $_note = array();
 
     /**

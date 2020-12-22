@@ -20,34 +20,11 @@ namespace PhpGedcom\Record;
  */
 class ObjeRef extends \PhpGedcom\Record implements Noteable
 {
-    /**
-     *
-     */
-    protected $_isRef   = false;
-
-    /**
-     *
-     */
-    protected $_obje    = null;
-
-    /**
-     *
-     */
-    protected $_form    = null;
-
-    /**
-     *
-     */
-    protected $_titl    = null;
-
-    /**
-     *
-     */
-    protected $_file    = null;
-
-    /**
-     *
-     */
+    protected $_isRef = false;
+    protected $_obje = null;
+    protected $_form = null;
+    protected $_titl = null;
+    protected $_file = array();
     protected $_note = array();
 
     /**
