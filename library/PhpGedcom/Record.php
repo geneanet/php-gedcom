@@ -1,4 +1,5 @@
 <?php
+
 /**
  * php-gedcom
  *
@@ -8,7 +9,7 @@
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2013, Kristopher Wilson
  * @package         php-gedcom
- * @license         GPL-3.0
+ * @license         MIT
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
@@ -96,8 +97,8 @@ abstract class Record
      * Checks if this GEDCOM object has the provided attribute (ie, if the provided
      * attribute exists below the current object in its tree).
      *
-     * @param  string $var The name of the attribute
-     * @return bool   True if this object has the provided attribute
+     * @param string $var The name of the attribute
+     * @return bool True if this object has the provided attribute
      */
     public function hasAttribute($var)
     {
