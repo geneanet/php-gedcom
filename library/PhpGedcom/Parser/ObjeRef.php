@@ -44,7 +44,6 @@ class ObjeRef extends \PhpGedcom\Parser\Component
             $record = $parser->getCurrentLineRecord();
             $recordType = strtoupper(trim($record[1]));
             $currentDepth = (int) $record[0];
-
             if ($currentDepth <= $depth) {
                 $parser->back();
                 break;
@@ -55,7 +54,7 @@ class ObjeRef extends \PhpGedcom\Parser\Component
                     $obje->setTitl(trim($record[2]));
                     break;
                 case 'FILE':
-                    $obje->setFile(trim($record[2]));
+                    $obje->addFile(trim($record[2]));
                     break;
                 case 'FORM':
                     $obje->setForm(trim($record[2]));

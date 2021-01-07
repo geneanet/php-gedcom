@@ -80,7 +80,7 @@ class Obje extends \PhpGedcom\Parser\Component
                     $obje->setChan($chan);
                     break;
                 case 'FILE':
-                    $obje->setFile(trim($record[2]));
+                    $obje->addFile(trim($record[2]));
                     break;
                 default:
                     $parser->logUnhandledRecord(get_class() . ' @ ' . __LINE__);
