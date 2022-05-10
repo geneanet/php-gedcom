@@ -72,13 +72,13 @@ class Fam extends \PhpGedcom\Parser\Component
                     $fam->addChil($parser->normalizeIdentifier($record[2]));
                     break;
                 case 'NCHI':
-                    $fam->setNchi(trim($record[2]));
+                    $fam->setNchi(trim($record[2] ?? ''));
                     break;
                 case 'SUBM':
                     $fam->addSubm($parser->normalizeIdentifier($record[2]));
                     break;
                 case 'RIN':
-                    $fam->setRin(trim($record[2]));
+                    $fam->setRin(trim($record[2] ?? ''));
                     break;
                 case 'CHAN':
                     $chan = \PhpGedcom\Parser\Chan::parse($parser);

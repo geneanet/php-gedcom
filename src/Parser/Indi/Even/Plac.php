@@ -51,7 +51,7 @@ class Plac extends \PhpGedcom\Parser\Component
 
             switch ($recordType) {
                 case 'FORM':
-                    $plac->setForm(trim($record[2]));
+                    $plac->setForm(trim($record[2] ?? ''));
                     break;
                 case 'NOTE':
                     $note = \PhpGedcom\Parser\NoteRef::parse($parser);

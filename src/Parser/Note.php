@@ -59,7 +59,7 @@ class Note extends \PhpGedcom\Parser\Component
 
             switch ($recordType) {
                 case 'RIN':
-                    $note->setRin(trim($record[2]));
+                    $note->setRin(trim($record[2] ?? ''));
                     break;
                 case 'CONT':
                     $note->setNote($note->getNote() . "\n");

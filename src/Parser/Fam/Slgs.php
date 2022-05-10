@@ -47,16 +47,16 @@ class Slgs extends \PhpGedcom\Parser\Component
 
             switch ($recordType) {
                 case 'STAT':
-                    $slgs->setStat(trim($record[2]));
+                    $slgs->setStat(trim($record[2] ?? ''));
                     break;
                 case 'DATE':
-                    $slgs->setDate(trim($record[2]));
+                    $slgs->setDate(trim($record[2] ?? ''));
                     break;
                 case 'PLAC':
-                    $slgs->setPlac(trim($record[2]));
+                    $slgs->setPlac(trim($record[2] ?? ''));
                     break;
                 case 'TEMP':
-                    $slgs->setTemp(trim($record[2]));
+                    $slgs->setTemp(trim($record[2] ?? ''));
                     break;
                 case 'SOUR':
                     $sour = \PhpGedcom\Parser\SourRef::parse($parser);

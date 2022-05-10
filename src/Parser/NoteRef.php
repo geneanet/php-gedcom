@@ -36,7 +36,7 @@ class NoteRef extends \PhpGedcom\Parser\Component
             return null;
         }
 
-        if (preg_match('/^@(.*)@$/', trim($record[2]))) {
+        if (preg_match('/^@(.*)@$/', trim($record[2] ?? ''))) {
             $note->setIsReference(true);
             $note->setNote($parser->normalizeIdentifier($record[2]));
         } else {

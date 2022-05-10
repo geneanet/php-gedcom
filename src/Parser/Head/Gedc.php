@@ -47,10 +47,10 @@ class Gedc extends \PhpGedcom\Parser\Component
 
             switch ($recordType) {
                 case 'VERS':
-                    $gedc->setVers(trim($record[2]));
+                    $gedc->setVers(trim($record[2] ?? ''));
                     break;
                 case 'FORM':
-                    $gedc->setForm(trim($record[2]));
+                    $gedc->setForm(trim($record[2] ?? ''));
                     break;
                 default:
                     $parser->logUnhandledRecord(get_class() . ' @ ' . __LINE__);

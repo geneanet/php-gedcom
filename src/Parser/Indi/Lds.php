@@ -48,16 +48,16 @@ abstract class Lds extends \PhpGedcom\Parser\Component
 
             switch ($recordType) {
                 case 'STAT':
-                    $lds->setStat(trim($record[2]));
+                    $lds->setStat(trim($record[2] ?? ''));
                     break;
                 case 'DATE':
-                    $lds->setDate(trim($record[2]));
+                    $lds->setDate(trim($record[2] ?? ''));
                     break;
                 case 'PLAC':
-                    $lds->setPlac(trim($record[2]));
+                    $lds->setPlac(trim($record[2] ?? ''));
                     break;
                 case 'TEMP':
-                    $lds->setTemp(trim($record[2]));
+                    $lds->setTemp(trim($record[2] ?? ''));
                     break;
                 case 'SOUR':
                     $sour = \PhpGedcom\Parser\SourRef::parse($parser);

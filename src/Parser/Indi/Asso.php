@@ -48,7 +48,7 @@ class Asso extends \PhpGedcom\Parser\Component
 
             switch ($recordType) {
                 case 'RELA':
-                    $asso->setRela(trim($record[2]));
+                    $asso->setRela(trim($record[2] ?? ''));
                     break;
                 case 'SOUR':
                     $sour = \PhpGedcom\Parser\SourRef::parse($parser);

@@ -47,7 +47,7 @@ class Husb extends \PhpGedcom\Parser\Component
 
             switch ($recordType) {
                 case 'AGE':
-                    $husband->setAge(trim($record[2]));
+                    $husband->setAge(trim($record[2] ?? ''));
                     break;
                 default:
                     $parser->logUnhandledRecord(get_class() . ' @ ' . __LINE__);

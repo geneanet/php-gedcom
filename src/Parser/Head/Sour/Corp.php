@@ -32,7 +32,7 @@ class Corp extends \PhpGedcom\Parser\Component
         $depth = (int) $record[0];
 
         $corp = new \PhpGedcom\Record\Head\Sour\Corp();
-        $corp->setCorp(trim($record[2]));
+        $corp->setCorp(trim($record[2] ?? ''));
 
         $parser->forward();
 
@@ -51,7 +51,7 @@ class Corp extends \PhpGedcom\Parser\Component
                     $corp->setAddr(\PhpGedcom\Parser\Addr::parse($parser));
                     break;
                 case 'PHON':
-                    $corp->addPhon(trim($record[2]));
+                    $corp->addPhon(trim($record[2] ?? ''));
                     break;
                 default:
                     $parser->logUnhandledRecord(get_class() . ' @ ' . __LINE__);

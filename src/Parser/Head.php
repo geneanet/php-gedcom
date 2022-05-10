@@ -31,7 +31,7 @@ class Head extends \PhpGedcom\Parser\Component
     {
         $record = $parser->getCurrentLineRecord();
         $identifier = $parser->normalizeIdentifier($record[1]);
-        $depth = (int) $record[0];
+        $depth = (int) ($record[0] ?? 0);
 
         $head = new \PhpGedcom\Record\Head();
 
@@ -55,25 +55,25 @@ class Head extends \PhpGedcom\Parser\Component
                     $head->setSour($sour);
                     break;
                 case 'DEST':
-                    $head->setDest(trim($record[2]));
+                    $head->setDest(trim($record[2] ?? ''));
                     break;
                 case 'SUBM':
-                    $head->setSubm($parser->normalizeIdentifier($record[2]));
+                    $head->setSubm($parser->normalizeIdentifier($record[2] ?? ''));
                     break;
                 case 'SUBN':
-                    $head->setSubn($parser->normalizeIdentifier($record[2]));
+                    $head->setSubn($parser->normalizeIdentifier($record[2] ?? ''));
                     break;
                 case 'DEST':
-                    $head->setDest(trim($record[2]));
+                    $head->setDest(trim($record[2] ?? ''));
                     break;
                 case 'FILE':
-                    $head->setFile(trim($record[2]));
+                    $head->setFile(trim($record[2] ?? ''));
                     break;
                 case 'COPR':
-                    $head->setCopr(trim($record[2]));
+                    $head->setCopr(trim($record[2] ?? ''));
                     break;
                 case 'LANG':
-                    $head->setLang(trim($record[2]));
+                    $head->setLang(trim($record[2] ?? ''));
                     break;
                 case 'DATE':
                     $date = \PhpGedcom\Parser\Head\Date::parse($parser);

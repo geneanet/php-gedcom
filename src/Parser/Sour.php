@@ -54,7 +54,7 @@ class Sour extends \PhpGedcom\Parser\Component
                     $sour->setTitl($parser->parseMultilineRecord());
                     break;
                 case 'RIN':
-                    $sour->setRin(trim($record[2]));
+                    $sour->setRin(trim($record[2] ?? ''));
                     break;
                 case 'AUTH':
                     $sour->setAuth($parser->parseMultilineRecord());
@@ -66,7 +66,7 @@ class Sour extends \PhpGedcom\Parser\Component
                     $sour->setPubl($parser->parseMultilineRecord());
                     break;
                 case 'ABBR':
-                    $sour->setAbbr(trim($record[2]));
+                    $sour->setAbbr(trim($record[2] ?? ''));
                     break;
                 case 'REPO':
                     $sour->setRepo(\PhpGedcom\Parser\RepoRef::parse($parser));

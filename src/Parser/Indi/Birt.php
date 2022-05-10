@@ -24,6 +24,6 @@ class Birt extends \PhpGedcom\Parser\Indi\Even
     public static function parseFamc($parser, $even)
     {
         $record = $parser->getCurrentLineRecord();
-        $even->setFamc(trim($record[2]));
+        $even->setFamc(trim($record[2] ?? ''));
     }
 }

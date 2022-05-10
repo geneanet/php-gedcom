@@ -51,7 +51,7 @@ class Repo extends \PhpGedcom\Parser\Component
 
             switch ($recordType) {
                 case 'NAME':
-                    $repo->setName(trim($record[2]));
+                    $repo->setName(trim($record[2] ?? ''));
                     break;
                 case 'ADDR':
                     $addr = \PhpGedcom\Parser\Addr::parse($parser);
@@ -75,7 +75,7 @@ class Repo extends \PhpGedcom\Parser\Component
                     $repo->setChan($chan);
                     break;
                 case 'RIN':
-                    $repo->setRin(trim($record[2]));
+                    $repo->setRin(trim($record[2] ?? ''));
                     break;
                 default:
                     $parser->logUnhandledRecord(get_class() . ' @ ' . __LINE__);

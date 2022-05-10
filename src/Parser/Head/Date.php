@@ -32,7 +32,7 @@ class Date extends \PhpGedcom\Parser\Component
         $depth = (int) $record[0];
 
         $date = new \PhpGedcom\Record\Head\Date();
-        $date->setDate(trim($record[2]));
+        $date->setDate(trim($record[2] ?? ''));
 
         $parser->forward();
 
@@ -48,7 +48,7 @@ class Date extends \PhpGedcom\Parser\Component
 
             switch ($recordType) {
                 case 'TIME':
-                    $date->setTime(trim($record[2]));
+                    $date->setTime(trim($record[2] ?? ''));
                     break;
                 default:
                     $parser->logUnhandledRecord(get_class() . ' @ ' . __LINE__);

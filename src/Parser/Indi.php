@@ -57,19 +57,19 @@ class Indi extends \PhpGedcom\Parser\Component
                     $indi->addAlia($parser->normalizeIdentifier($record[2]));
                     break;
                 case 'SEX':
-                    $indi->setSex(trim($record[2]));
+                    $indi->setSex(trim($record[2] ?? ''));
                     break;
                 case 'RIN':
-                    $indi->setRin(trim($record[2]));
+                    $indi->setRin(trim($record[2] ?? ''));
                     break;
                 case 'RESN':
-                    $indi->setResn(trim($record[2]));
+                    $indi->setResn(trim($record[2] ?? ''));
                     break;
                 case 'RFN':
-                    $indi->setRfn(trim($record[2]));
+                    $indi->setRfn(trim($record[2] ?? ''));
                     break;
                 case 'AFN':
-                    $indi->setAfn(trim($record[2]));
+                    $indi->setAfn(trim($record[2] ?? ''));
                     break;
                 case 'CHAN':
                     $chan = \PhpGedcom\Parser\Chan::parse($parser);

@@ -47,7 +47,7 @@ class Plac extends \PhpGedcom\Parser\Component
 
             switch ($recordType) {
                 case 'FORM':
-                    $plac->setForm(trim($record[2]));
+                    $plac->setForm(trim($record[2] ?? ''));
                     break;
                 default:
                     $parser->logUnhandledRecord(get_class() . ' @ ' . __LINE__);

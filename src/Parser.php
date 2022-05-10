@@ -145,7 +145,7 @@ class Parser
         $record = $this->getCurrentLineRecord();
 
         $depth = (int) $record[0];
-        $data = isset($record[2]) ? trim($record[2]) : '';
+        $data = trim($record[2] ?? '');
 
         $this->forward();
 
@@ -287,27 +287,29 @@ class Parser
 
             if ($depth == 0) {
                 // Although not always an identifier (HEAD,TRLR):
-                $identifier = $this->normalizeIdentifier($record[1]);
+                if (isset($record[1])) {
+                    $identifier = $this->normalizeIdentifier($record[1]);
+                }
 
-                if (trim($record[1]) == 'HEAD') {
+                if (isset($record[1]) && trim($record[1]) == 'HEAD') {
                     Parser\Head::parse($this);
                 } else if (isset($record[2]) && trim($record[2]) == 'SUBN') {
                     Parser\Subn::parse($this);
                 } else if (isset($record[2]) && trim($record[2]) == 'SUBM') {
                     Parser\Subm::parse($this);
-                } else if (isset($record[2]) && $record[2] == 'SOUR') {
+                } else if (isset($record[2]) && trim($record[2]) == 'SOUR') {
                     Parser\Sour::parse($this);
-                } else if (isset($record[2]) && $record[2] == 'INDI') {
+                } else if (isset($record[2]) && trim($record[2]) == 'INDI') {
                     Parser\Indi::parse($this);
-                } else if (isset($record[2]) && $record[2] == 'FAM') {
+                } else if (isset($record[2]) && trim($record[2]) == 'FAM') {
                     Parser\Fam::parse($this);
                 } else if (isset($record[2]) && substr(trim($record[2]), 0, 4) == 'NOTE') {
                     Parser\Note::parse($this);
-                } else if (isset($record[2]) && $record[2] == 'REPO') {
+                } else if (isset($record[2]) && trim($record[2]) == 'REPO') {
                     Parser\Repo::parse($this);
-                } else if (isset($record[2]) && $record[2] == 'OBJE') {
+                } else if (isset($record[2]) && trim($record[2]) == 'OBJE') {
                     Parser\Obje::parse($this);
-                } else if (trim($record[1]) == 'TRLR') {
+                } else if (isset($record[1]) && trim($record[1]) == 'TRLR') {
                     // EOF
                     break;
                 } else {

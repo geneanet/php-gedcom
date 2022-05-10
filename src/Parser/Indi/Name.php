@@ -32,7 +32,7 @@ class Name extends \PhpGedcom\Parser\Component
         $depth = (int) $record[0];
 
         $name = new \PhpGedcom\Record\Indi\Name();
-        $name->setName(trim($record[2]));
+        $name->setName(trim($record[2] ?? ''));
 
         $parser->forward();
 
@@ -48,22 +48,22 @@ class Name extends \PhpGedcom\Parser\Component
 
             switch ($recordType) {
                 case 'NPFX':
-                    $name->setNpfx(trim($record[2]));
+                    $name->setNpfx(trim($record[2] ?? ''));
                     break;
                 case 'GIVN':
-                    $name->setGivn(trim($record[2]));
+                    $name->setGivn(trim($record[2] ?? ''));
                     break;
                 case 'NICK':
-                    $name->setNick(trim($record[2]));
+                    $name->setNick(trim($record[2] ?? ''));
                     break;
                 case 'SPFX':
-                    $name->setSpfx(trim($record[2]));
+                    $name->setSpfx(trim($record[2] ?? ''));
                     break;
                 case 'SURN':
-                    $name->setSurn(trim($record[2]));
+                    $name->setSurn(trim($record[2] ?? ''));
                     break;
                 case 'NSFX':
-                    $name->setNsfx(trim($record[2]));
+                    $name->setNsfx(trim($record[2] ?? ''));
                     break;
                 case 'SOUR':
                     $sour = \PhpGedcom\Parser\SourRef::parse($parser);

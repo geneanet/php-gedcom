@@ -47,10 +47,10 @@ class Chan extends \PhpGedcom\Parser\Component
 
             switch ($recordType) {
                 case 'DATE':
-                    $chan->setDate(trim($record[2]));
+                    $chan->setDate(trim($record[2] ?? ''));
                     break;
                 case 'TIME':
-                    $chan->setTime(trim($record[2]));
+                    $chan->setTime(trim($record[2] ?? ''));
                     break;
                 case 'NOTE':
                     $note = \PhpGedcom\Parser\NoteRef::parse($parser);

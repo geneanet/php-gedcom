@@ -51,16 +51,16 @@ class Obje extends \PhpGedcom\Parser\Component
 
             switch ($recordType) {
                 case 'FORM':
-                    $obje->setForm(trim($record[2]));
+                    $obje->setForm(trim($record[2] ?? ''));
                     break;
                 case 'TITL':
-                    $obje->setTitl(trim($record[2]));
+                    $obje->setTitl(trim($record[2] ?? ''));
                     break;
                 case 'OBJE':
-                    $obje->setForm($parser->normalizeIdentifier($record[2]));
+                    $obje->setForm($parser->normalizeIdentifier($record[2] ?? ''));
                     break;
                 case 'RIN':
-                    $obje->setRin(trim($record[2]));
+                    $obje->setRin(trim($record[2] ?? ''));
                     break;
                 case 'REFN':
                     $refn = \PhpGedcom\Parser\Refn::parse($parser);
@@ -80,7 +80,7 @@ class Obje extends \PhpGedcom\Parser\Component
                     $obje->setChan($chan);
                     break;
                 case 'FILE':
-                    $obje->addFile(trim($record[2]));
+                    $obje->addFile(trim($record[2] ?? ''));
                     break;
                 default:
                     $parser->logUnhandledRecord(get_class() . ' @ ' . __LINE__);

@@ -32,7 +32,7 @@ class Data extends \PhpGedcom\Parser\Component
         $depth = (int) $record[0];
 
         $data = new \PhpGedcom\Record\Head\Sour\Data();
-        $data->setData(trim($record[2]));
+        $data->setData(trim($record[2] ?? ''));
 
         $parser->forward();
 
@@ -48,10 +48,10 @@ class Data extends \PhpGedcom\Parser\Component
 
             switch ($recordType) {
                 case 'DATE':
-                    $data->setDate(trim($record[2]));
+                    $data->setDate(trim($record[2] ?? ''));
                     break;
                 case 'COPR':
-                    $data->setCopr(trim($record[2]));
+                    $data->setCopr(trim($record[2] ?? ''));
                     break;
                 default:
                     $parser->logUnhandledRecord(get_class() . ' @ ' . __LINE__);

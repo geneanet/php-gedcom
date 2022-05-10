@@ -32,7 +32,7 @@ class Char extends \PhpGedcom\Parser\Component
         $depth = (int) $record[0];
 
         $char = new \PhpGedcom\Record\Head\Char();
-        $char->setChar(trim($record[2]));
+        $char->setChar(trim($record[2] ?? ''));
 
         $parser->forward();
 
@@ -48,7 +48,7 @@ class Char extends \PhpGedcom\Parser\Component
 
             switch ($recordType) {
                 case 'VERS':
-                    $char->setVers(trim($record[2]));
+                    $char->setVers(trim($record[2] ?? ''));
                     break;
                 default:
                     $parser->logUnhandledRecord(get_class() . ' @ ' . __LINE__);

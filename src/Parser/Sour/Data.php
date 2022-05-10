@@ -50,10 +50,10 @@ class Data extends \PhpGedcom\Parser\Component
                     $data->addEven(\PhpGedcom\Parser\Sour\Data\Even::parse($parser));
                     break;
                 case 'DATE':
-                    $data->setDate(trim($record[2]));
+                    $data->setDate(trim($record[2] ?? ''));
                     break;
                 case 'AGNC':
-                    $data->setAgnc(trim($record[2]));
+                    $data->setAgnc(trim($record[2] ?? ''));
                     break;
                 case 'NOTE':
                     $note = \PhpGedcom\Parser\NoteRef::parse($parser);

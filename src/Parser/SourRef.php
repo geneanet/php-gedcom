@@ -32,14 +32,14 @@ class SourRef extends \PhpGedcom\Parser\Component
         $depth = (int) $record[0];
 
         $sour = new \PhpGedcom\Record\SourRef();
-        $sour->setSour($record[2]);
+        $sour->setSour($record[2] ?? '');
 
         $parser->forward();
 
         while (!$parser->eof()) {
             $record = $parser->getCurrentLineRecord();
-            $recordType = strtoupper(trim($record[1]));
-            $currentDepth = (int) $record[0];
+            $recordType = strtoupper(trim($record[1] ?? ''));
+            $currentDepth = (int) ($record[0] ?? 0);
 
             if ($currentDepth <= $depth) {
                 $parser->back();
@@ -72,10 +72,10 @@ class SourRef extends \PhpGedcom\Parser\Component
                     $sour->setData(\PhpGedcom\Parser\Sour\Data::parse($parser));
                     break;
                 case 'QUAY':
-                    $sour->setQuay(trim($record[2]));
+                    $sour->setQuay(trim($record[2] ?? ''));
                     break;
                 case 'PAGE':
-                    $sour->setPage(trim($record[2]));
+                    $sour->setPage(trim($record[2] ?? ''));
                     break;
                 case 'EVEN':
                     $even = \PhpGedcom\Parser\SourRef\Even::parse($parser);

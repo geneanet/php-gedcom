@@ -32,7 +32,7 @@ class Refn extends \PhpGedcom\Parser\Component
         $depth = (int) $record[0];
 
         $refn = new \PhpGedcom\Record\Refn();
-        $refn->setRefn(trim($record[2]));
+        $refn->setRefn(trim($record[2] ?? ''));
 
         $parser->forward();
 
@@ -48,7 +48,7 @@ class Refn extends \PhpGedcom\Parser\Component
 
             switch ($recordType) {
                 case 'TYPE':
-                    $refn->setType(trim($record[2]));
+                    $refn->setType(trim($record[2] ?? ''));
                     break;
                 default:
                     $parser->logUnhandledRecord(get_class() . ' @ ' . __LINE__);

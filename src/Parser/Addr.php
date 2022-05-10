@@ -30,7 +30,7 @@ class Addr extends \PhpGedcom\Parser\Component
     {
         $record = $parser->getCurrentLineRecord();
         $depth = (int) $record[0];
-        $line = isset($record[2]) ? trim($record[2]) : '';
+        $line = trim($record[2] ?? '');
 
         $addr = new \PhpGedcom\Record\Addr();
         $addr->setAddr($line);
@@ -47,7 +47,7 @@ class Addr extends \PhpGedcom\Parser\Component
             }
 
             if ($addr->hasAttribute($recordType)) {
-                $addr->{'set' . $recordType}(trim($record[2]));
+                $addr->{'set' . $recordType}(trim($record[2] ?? ''));
             } else {
                 if ($recordType == 'cont') {
                     // FIXME: Can have CONT on multiple attributes

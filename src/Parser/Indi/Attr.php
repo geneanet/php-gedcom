@@ -37,7 +37,7 @@ abstract class Attr extends \PhpGedcom\Parser\Component
         $attr->setType(trim($record[1]));
 
         if (isset($record[2])) {
-            $attr->setAttr(trim($record[2]));
+            $attr->setAttr(trim($record[2] ?? ''));
         }
 
         $parser->forward();
@@ -54,10 +54,10 @@ abstract class Attr extends \PhpGedcom\Parser\Component
 
             switch ($recordType) {
                 case 'TYPE':
-                    $attr->setType(trim($record[2]));
+                    $attr->setType(trim($record[2] ?? ''));
                     break;
                 case 'DATE':
-                    $attr->setDate(trim($record[2]));
+                    $attr->setDate(trim($record[2] ?? ''));
                     break;
                 case 'PLAC':
                     $plac = \PhpGedcom\Parser\Indi\Even\Plac::parse($parser);
@@ -71,13 +71,13 @@ abstract class Attr extends \PhpGedcom\Parser\Component
                     $attr->addPhon($phone);
                     break;
                 case 'CAUS':
-                    $attr->setCaus(trim($record[2]));
+                    $attr->setCaus(trim($record[2] ?? ''));
                     break;
                 case 'AGE':
-                    $attr->setAge(trim($record[2]));
+                    $attr->setAge(trim($record[2] ?? ''));
                     break;
                 case 'AGNC':
-                    $attr->setAgnc(trim($record[2]));
+                    $attr->setAgnc(trim($record[2] ?? ''));
                     break;
                 case 'SOUR':
                     $sour = \PhpGedcom\Parser\SourRef::parse($parser);

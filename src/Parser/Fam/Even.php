@@ -51,10 +51,10 @@ class Even extends \PhpGedcom\Parser\Component
 
             switch ($recordType) {
                 case 'TYPE':
-                    $even->setType(trim($record[2]));
+                    $even->setType(trim($record[2] ?? ''));
                     break;
                 case 'DATE':
-                    $even->setDate(trim($record[2]));
+                    $even->setDate(trim($record[2] ?? ''));
                     break;
                 case 'PLAC':
                     $plac = \PhpGedcom\Parser\Indi\Even\Plac::parse($parser);
@@ -69,13 +69,13 @@ class Even extends \PhpGedcom\Parser\Component
                     $even->addPhone($phone);
                     break;
                 case 'CAUS':
-                    $even->setCaus(trim($record[2]));
+                    $even->setCaus(trim($record[2] ?? ''));
                     break;
                 case 'AGE':
-                    $even->setAge(trim($record[2]));
+                    $even->setAge(trim($record[2] ?? ''));
                     break;
                 case 'AGNC':
-                    $even->setAgnc(trim($record[2]));
+                    $even->setAgnc(trim($record[2] ?? ''));
                     break;
                 case 'HUSB':
                     $husb = \PhpGedcom\Parser\Fam\Even\Husb::parse($parser);
