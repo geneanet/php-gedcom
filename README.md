@@ -47,6 +47,6 @@ $gedcom = $parser->parse('tmp\gedcom.ged');
 
 foreach ($gedcom->getIndi() as $individual) {
     echo $individual->getId() . ': ' . current($individual->getName())->getSurn() .
-        ', ' . current($indi->$individual())->getGivn();
+        ', ' . current($individual->getName())->getGivn();
 }
 ```
