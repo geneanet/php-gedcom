@@ -1,12 +1,12 @@
 {
     "name": "geneanet/php-gedcom",
-    "description": "A GEDCOM file parser (read + write) for PHP 5.3+",
-    "type": "library", 
+    "description": "A GEDCOM file parser (read + write) for PHP 7.2+",
+    "type": "library",
     "keywords": ["gedcom","parser"],
     "homepage": "http://github.com/geneanet/php-gedcom",
     "license": "MIT",
     "require": {
-        "php": ">=5.3"
+        "php": ">=7.2"
     },
     "require-dev": {
         "phpunit/phpunit": "5.7.*",
