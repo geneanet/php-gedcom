@@ -3,12 +3,13 @@
 namespace PhpGedcomTest;
 
 use PhpGedcom\Parser;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class Issue00018Test
  * @package PhpGedcomTest
  */
-class Issue00018Test extends \PHPUnit_Framework_TestCase
+class Issue00018Test extends TestCase
 {
     /**
      * Test handling an empty note.

@@ -3,12 +3,13 @@
 namespace PhpGedcomTest;
 
 use PhpGedcom\Parser;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class Issue00017Test
  * @package PhpGedcomTest
  */
-class Issue00017Test extends \PHPUnit_Framework_TestCase
+class Issue00017Test extends TestCase
 {
     /**
      * Test an empty 1 FAMC under an INDI.

@@ -16,12 +16,13 @@
 namespace PhpGedcomTest;
 
 use PhpGedcom\Parser;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class ParserTest
  * @package PhpGedcomTest
  */
-class ParserTest extends \PHPUnit_Framework_TestCase
+class ParserTest extends TestCase
 {
     /**
      * @var \PhpGedcom\Parser
@@ -36,7 +37,7 @@ class ParserTest extends \PHPUnit_Framework_TestCase
     /**
      *
      */
-    public function setUp()
+    protected function setUp(): void
     {
         $this->parser = new Parser();
         $this->gedcom = $this->parser->parse(TEST_DIR . '/stresstestfiles/TGC551LF.ged');
