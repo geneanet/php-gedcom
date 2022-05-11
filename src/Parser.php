@@ -114,7 +114,7 @@ class Parser
         while ($currentDepth > $level) {
             $this->forward();
             $record = $this->getCurrentLineRecord();
-            $currentDepth = (int) $record[0];
+            $currentDepth = is_array($record) ? (int) $record[0] : 0;
         }
 
         $this->back();
