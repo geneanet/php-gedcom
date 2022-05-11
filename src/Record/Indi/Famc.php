@@ -15,7 +15,7 @@
 
 namespace PhpGedcom\Record\Indi;
 
-use \PhpGedcom\Record\Noteable;
+use PhpGedcom\Record\Noteable;
 
 /**
  *

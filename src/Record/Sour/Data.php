@@ -15,7 +15,7 @@
 
 namespace PhpGedcom\Record\Sour;
 
-use \PhpGedcom\Record\Noteable;
+use PhpGedcom\Record\Noteable;
 
 /**
  *

@@ -15,8 +15,8 @@
 
 namespace PhpGedcom\Record\Fam;
 
-use \PhpGedcom\Record\Sourceable;
-use \PhpGedcom\Record\Noteable;
+use PhpGedcom\Record\Sourceable;
+use PhpGedcom\Record\Noteable;
 
 /**
  *

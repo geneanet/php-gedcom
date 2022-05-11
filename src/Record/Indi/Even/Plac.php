@@ -15,7 +15,7 @@
 
 namespace PhpGedcom\Record\Indi\Even;
 
-use \PhpGedcom\Record;
+use PhpGedcom\Record;
 
 /**
  * Class Plac

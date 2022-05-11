@@ -15,8 +15,8 @@
 
 namespace PhpGedcom;
 
-use \PhpGedcom\Gedcom;
-use \PhpGedcom\Writer\Head;
+use PhpGedcom\Gedcom;
+use PhpGedcom\Writer\Head;
 
 /**
  *

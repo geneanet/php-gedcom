@@ -15,7 +15,7 @@
 
 namespace PhpGedcom\Record;
 
-use \PhpGedcom\Record\Sourceable;
+use PhpGedcom\Record\Sourceable;
 
 /**
  *

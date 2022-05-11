@@ -15,7 +15,7 @@
 
 namespace PhpGedcom\Record\Indi;
 
-use \PhpGedcom\Record;
+use PhpGedcom\Record;
 
 /**
  * Class Even
