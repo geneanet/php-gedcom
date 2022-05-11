@@ -31,12 +31,20 @@ class Even extends \PhpGedcom\Parser\Component
     public static function parse(\PhpGedcom\Parser $parser)
     {
         $record = $parser->getCurrentLineRecord();
+
+        if (!is_array($record)) {
+            return null;
+        }
+
         $depth = (int) $record[0];
 
-        $even = null;
+        $tag = trim($record[1] ?? '');
 
-        if (strtoupper(trim($record[1])) != 'EVEN') {
-            $className = '\\PhpGedcom\\Record\\Indi\\' . ucfirst(strtolower(trim($record[1])));
+        if (strtoupper($tag) !== 'EVEN') {
+            $className = '\\PhpGedcom\\Record\\Indi\\' . ucfirst(strtolower($tag));
+            if (!class_exists($className)) {
+                return null;
+            }
             $even = new $className();
         } else {
             $even = new \PhpGedcom\Record\Indi\Even();
