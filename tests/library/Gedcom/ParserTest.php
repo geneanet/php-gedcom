@@ -16,12 +16,13 @@
 namespace PhpGedcomTest;
 
 use PhpGedcom\Parser;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class ParserTest
  * @package PhpGedcomTest
  */
-class ParserTest extends \PHPUnit_Framework_TestCase
+class ParserTest extends TestCase
 {
     /**
      * @var \PhpGedcom\Parser
@@ -36,10 +37,10 @@ class ParserTest extends \PHPUnit_Framework_TestCase
     /**
      *
      */
-    public function setUp()
+    protected function setUp(): void
     {
         $this->parser = new Parser();
-        $this->gedcom = $this->parser->parse(TEST_DIR . '/stresstestfiles/TGC551LF.ged');
+        $this->gedcom = $this->parser->parse(__DIR__ . '/../../stresstestfiles/TGC551LF.ged');
     }
 
     /**
@@ -169,9 +170,10 @@ class ParserTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($subm['SUBMITTER']->getRin(), '1');
 
         $obje = current($subm['SUBMITTER']->getObje());
+
         $this->assertEquals($obje->getForm(), 'jpeg');
         $this->assertEquals($obje->getTitl(), 'Submitter Multimedia File');
-        $this->assertEquals($obje->getFile(), 'ImgFile.JPG');
+        $this->assertEquals($obje->getFile(), ['ImgFile.JPG']);
 
         $note = current($obje->getNote());
         $this->assertEquals($note->getNote(), 'N1');
@@ -202,34 +204,6 @@ class ParserTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($subm['SM3']->getChan()->getDate(), '13 Jun 2000');
         $this->assertEquals($subm['SM3']->getChan()->getTime(), '17:07:32');
         $this->assertEquals($subm['SM3']->getRin(), '3');
-    }
-
-    /**
-     *
-     */
-    public function testIndi()
-    {
-    }
-
-    /**
-     *
-     */
-    public function testFam()
-    {
-    }
-
-    /**
-     *
-     */
-    public function testObje()
-    {
-    }
-
-    /**
-     *
-     */
-    public function testRepo()
-    {
     }
 
     /**

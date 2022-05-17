@@ -2,7 +2,7 @@
 
 ## Requirements
 
-* php-gedcom 1.0+ requires PHP 5.3 (or later).
+* php-gedcom requires PHP 7.2 (or later).
 
 ## Installation
 
@@ -47,6 +47,6 @@ $gedcom = $parser->parse('tmp\gedcom.ged');
 
 foreach ($gedcom->getIndi() as $individual) {
     echo $individual->getId() . ': ' . current($individual->getName())->getSurn() .
-        ', ' . current($indi->$individual())->getGivn();
+        ', ' . current($individual->getName())->getGivn();
 }
 ```
