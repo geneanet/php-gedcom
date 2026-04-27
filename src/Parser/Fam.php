@@ -61,16 +61,27 @@ class Fam extends \PhpGedcom\Parser\Component
                 break;
             }
 
+            // HUSB, WIFE, CHIL ID are only defined at the top level
+            // Valid:
+            //      1 HUSB @I4@
+            // Invalid:
+            //      2 HUSB
+            //      3 AGE 26y 7m 14d
+            if (1 === $currentDepth) {
+                switch ($recordType) {
+                    case 'HUSB':
+                        $fam->setHusb($parser->normalizeIdentifier($record[2]));
+                        break;
+                    case 'WIFE':
+                        $fam->setWife($parser->normalizeIdentifier($record[2]));
+                        break;
+                    case 'CHIL':
+                        $fam->addChil($parser->normalizeIdentifier($record[2]));
+                        break;
+                }
+            }
+
             switch ($recordType) {
-                case 'HUSB':
-                    $fam->setHusb($parser->normalizeIdentifier($record[2]));
-                    break;
-                case 'WIFE':
-                    $fam->setWife($parser->normalizeIdentifier($record[2]));
-                    break;
-                case 'CHIL':
-                    $fam->addChil($parser->normalizeIdentifier($record[2]));
-                    break;
                 case 'NCHI':
                     $fam->setNchi(trim($record[2] ?? ''));
                     break;
